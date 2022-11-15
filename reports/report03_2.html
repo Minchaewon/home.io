@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>파스칼 삼각형</title>
+<script>
+    var height = prompt("파스칼의 삼각형의 높이 : ",1);
+    height = parseInt(height);
+    function new_row(prev_row){
+        var prev_row = new Array();
+        if (height == 1){
+            prev_row[0] = 1;
+            document.write(prev_row[0])
+        }
+        else if (height == 2){
+            prev_row[0] = 1;
+            prev_row[1] = 1;
+        }
+        else{
+            prev_row[0] = 1;
+            prev_row[height-1] = 1;
+            temp = new row[prev_row-1]
+            for (i=1; i<height-1; i++){
+                prev_row[i] = temp[i-1]+temp[i];
+            }
+        }
+        for (i =0; i < height; i++){
+            document.write(new_row(prev_row[i]));
+        }
+    }
+</script>
 </head>
 <body>
-
 </body>
 </html>
