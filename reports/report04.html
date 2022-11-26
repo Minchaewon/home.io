@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 프로그래밍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function transform(){
+            var digit = document.getElementById("digit").value;
+            var d = parseInt(digit,2);
+            var hexanum;
+
+            if (d===0){
+                hexanum = 0;
+            }
+            else if(d===1){
+                hexanum = 1;
+            }
+            else if(d===2) {
+                hexanum = 2;
+            }
+            else if(d===3) {
+                hexanum = 3;
+            }
+            else if(d===4) {
+                hexanum = 4;
+            }
+            else if(d===5) {
+                hexanum = 5;
+            }
+            else if(d===6) {
+                hexanum = 6;
+            }
+            else if(d===7) {
+                hexanum = 7;
+            }
+            else if(d===8) {
+                hexanum = 8;
+            }
+            else if(d===9) {
+                hexanum = 9;
+            }
+            else if(d===10) {
+                hexanum = 'A';
+            }
+            else if(d===11) {
+                hexanum = 'B';
+            }
+            else if(d===12) {
+                hexanum = 'C';
+            }
+            else if(d===13) {
+                hexanum = 'D';
+            }
+            else if(d===14) {
+                hexanum = 'E';
+            }
+            else if(d===15) {
+                hexanum = 'F';
+            }
+            document.getElementById("hexanum").value = hexanum;
+        }
+
+        function pascals(){
+            var size = document.getElementById("size").value;
+            var arr = [];
+
+        if (size === 1){
+            //arr[0] = 1;
+            //document.write(arr[0]);
+            //document.write("<br>");
+            //return arr;
+         }
+        else if (size === 2){
+            arr[0] = 1;
+            arr[1] = 1;
+            new_row(size-1);
+        }
+        else{
+            arr[0] = 1;
+            arr[size-1] = 1;
+            var new_arr = [];
+            new_arr = new_row(size-1);
+            for (var i = 1; i<size-1; i++){
+                arr[i] = new_arr[i-1] + new_arr[i];
+            }
+        }
+        for (var j = 0; j < arr.length; j++){
+            document.write(arr[j], " ")
+        }
+        document.write("<br>")
+        }
+    </script>
+</head>
+<body>
+<div class="container-sm mt-5">
+<div class="h3">2진수 변환기</div>
+<div class="mb-3">
+    <label class="form-label text-primary">2진수:
+        <input type="text" id="digit" size="20">
+    </label>
+    <button type="button" class="btn btn-dark" onclick="transform()"> ===> </button>
+    <label class="form-label text-primary"> 16진수:
+        <input type="text" id="hexanum" size="20" readonly value="">
+    </label>
+</div>
+<hr>
+<div class="h3">파스칼 삼각형</div>
+<div class="mb-3">
+    <label class="form-label text-primary"> 삼각형 높이
+        <input type="number" id="size" min="1" max="20" step="1" value="1">
+        <button type="button" class="btn btn-success" onclick="pascals()">그리기</button>
+    </label>
+</div>
+<div class="text-bg-secondary " id="draw_area"></div>
+</div>
+</body>
+</html>
